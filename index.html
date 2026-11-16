@@ -1,0 +1,1197 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ASHRAE RIT Dubai</title>
+<meta name="description" content="ASHRAE RIT Dubai Student Branch, part of ASHRAE Falcon Chapter UAE. HVAC, energy and buildings that don't waste the planet.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Archivo: closest free match to Akzidenz Grotesk (ASHRAE's brand font). Condensed width for headings, normal width for body. -->
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..900&display=swap" rel="stylesheet">
+<script>
+  /* The giant AC intro only runs on big screens with a mouse, and never for reduced motion. */
+  try{ if(matchMedia("(min-width:900px) and (hover:hover)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches) document.documentElement.classList.add("intro-on"); }catch(e){}
+</script>
+<style>
+:root{
+  --blue:#00549B; --blue2:#006EB6; --sky:#2AACE3; --navy:#0F4861; --green:#8EC640;
+  --bg:#FFFFFF; --bg2:#F4F8FB; --panel:#FFFFFF; --panel2:#EEF5FB;
+  --line:rgba(0,84,155,.13); --line2:rgba(0,84,155,.28);
+  --white:#0B2236; --text:#33475A; --muted:#566B7E;
+  --acc:#006EB6; --headc:var(--blue);
+  --glow:0 0 18px rgba(42,172,227,.35);
+  --head:"Archivo","Arial Narrow",sans-serif;
+  --body:"Archivo",Helvetica,Arial,sans-serif;
+  --gut:20px;
+  --cut:polygon(14px 0,100% 0,100% calc(100% - 14px),calc(100% - 14px) 100%,0 100%,0 14px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%;background:#fff}
+body{margin:0;background:var(--bg);color:var(--text);font-family:var(--body);font-stretch:100%;font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background:
+  linear-gradient(rgba(0,84,155,.045) 1px,transparent 1px) 0 0/48px 48px,
+  linear-gradient(90deg,rgba(0,84,155,.045) 1px,transparent 1px) 0 0/48px 48px}
+main,footer,.navbar,.footer-stripe{position:relative;z-index:1}
+a{color:inherit}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{max-width:1200px;margin:0 auto;padding:0 var(--gut)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+[hidden]{display:none!important}
+::selection{background:var(--sky);color:#03121C}
+
+/* Type */
+h1,h2,h3,.cond{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;margin:0;color:var(--headc);letter-spacing:.01em}
+h1{font-size:clamp(56px,14vw,148px);line-height:.88}
+h2{font-size:clamp(40px,8vw,80px);line-height:.92}
+h3{font-size:26px;line-height:1}
+.glow{background:linear-gradient(100deg,var(--sky),#7FD3F5 50%,var(--sky));-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 0 18px rgba(42,172,227,.55))}
+.lead{font-size:clamp(18px,2vw,21px);color:var(--muted);margin:16px 0 0;max-width:40ch}
+.center{text-align:center}.center .lead{margin-inline:auto}
+.kicker{font-size:13px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+
+section{padding:72px 0;position:relative}
+.tight{padding:44px 0}
+.mist{background:linear-gradient(180deg,transparent,var(--bg2) 15%,var(--bg2) 85%,transparent)}
+.head{margin-bottom:34px}
+@media(min-width:900px){section{padding:120px 0}.tight{padding:64px 0}.head{margin-bottom:52px}}
+
+/* Buttons: cut-corner, glowing */
+.hex{--bg:var(--panel2);--fg:var(--white);display:inline-flex;align-items:center;justify-content:center;gap:10px;background:var(--bg);color:var(--fg);border:0;padding:14px 28px;clip-path:var(--cut);font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;font-size:21px;letter-spacing:.04em;text-decoration:none;cursor:pointer;transition:background .2s,transform .15s,filter .2s;white-space:nowrap;line-height:1.1;box-shadow:inset 0 0 0 1px var(--line2)}
+.hex:hover{background:#E1EEF8}
+.hex:active{transform:translateY(2px)}
+.hex.green{--bg:var(--sky);--fg:#03121C;box-shadow:none;filter:drop-shadow(0 0 18px rgba(42,172,227,.5))}
+.hex.green:hover{background:#5EC4EE;filter:drop-shadow(0 0 28px rgba(42,172,227,.75))}
+.hex.white{--bg:var(--white);--fg:#03121C}
+.hex.sm{font-size:17px;padding:9px 18px}
+.hex.xl{font-size:clamp(26px,5.4vw,38px);padding:20px 38px;--cut:polygon(20px 0,100% 0,100% calc(100% - 20px),calc(100% - 20px) 100%,0 100%,0 20px);clip-path:var(--cut)}
+.hex svg{width:1em;height:1em}
+:focus-visible{outline:2px solid var(--sky);outline-offset:3px}
+.link{font-weight:700;font-size:15px;letter-spacing:.14em;text-transform:uppercase;color:var(--acc);text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.link::after{content:"\2192";transition:transform .2s}
+.link:hover::after{transform:translateX(4px)}
+
+/* Photos */
+.photo{position:relative;overflow:hidden;background:var(--panel) center/cover no-repeat;min-height:120px;border:1px solid var(--line)}
+.photo::before{content:"";position:absolute;inset:0;background:
+  radial-gradient(70% 60% at 70% 20%,rgba(42,172,227,.18),transparent 70%),
+  linear-gradient(rgba(0,84,155,.06) 1px,transparent 1px) 0 0/24px 24px,
+  linear-gradient(90deg,rgba(0,84,155,.06) 1px,transparent 1px) 0 0/24px 24px,
+  var(--bg2);transition:opacity .4s}
+.photo .tag-slot{position:absolute;left:12px;bottom:12px;right:12px;color:var(--muted);font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;display:flex;gap:8px;align-items:center}
+.photo .tag-slot svg{width:15px;height:15px;flex:none;color:var(--acc)}
+.photo.loaded::before{opacity:0}
+.photo.loaded .tag-slot{display:none}
+
+/* Header: one dark glass bar */
+.navbar{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.82);backdrop-filter:saturate(160%) blur(16px);-webkit-backdrop-filter:saturate(160%) blur(16px);border-bottom:1px solid var(--line)}
+.navbar .wrap{display:flex;align-items:center;min-height:66px;gap:10px}
+.brand{display:flex;align-items:center;gap:12px;text-decoration:none;margin-right:auto;min-width:0}
+.logo-slot{flex:none;width:44px;height:44px;border:1px dashed var(--line2);background:rgba(42,172,227,.06);display:grid;place-items:center;color:var(--muted);font-size:8px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;line-height:1.1;text-align:center;clip-path:var(--cut)}
+.brand .cond{font-size:22px;line-height:1}
+.brand small{display:block;font-family:var(--body);font-stretch:100%;font-variation-settings:"wdth" 100;font-size:11px;font-weight:600;letter-spacing:.18em;color:var(--acc);margin-top:3px}
+.navbar nav{display:none;gap:2px}
+.navbar nav a{color:var(--text);text-decoration:none;font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:8px 10px;position:relative}
+.navbar nav a:hover{color:var(--white)}
+.navbar nav a[aria-current=page]{color:var(--white)}
+.navbar nav a[aria-current=page]::after{content:"";position:absolute;left:10px;right:10px;bottom:0;height:2px;background:var(--sky);box-shadow:var(--glow)}
+.icon{width:38px;height:38px;display:grid;place-items:center;color:var(--text);text-decoration:none;background:none;border:0;cursor:pointer}
+.icon:hover{color:var(--acc)}
+.icon svg{width:20px;height:20px}
+.navbar .soc{display:none}
+@media(min-width:560px){.navbar .soc{display:grid}}
+@media(min-width:1100px){.navbar nav{display:flex}.menu-btn{display:none!important}}
+
+.drawer{position:fixed;inset:0;z-index:70;background:rgba(255,255,255,.98);backdrop-filter:blur(10px);color:var(--white);display:flex;flex-direction:column;padding:12px var(--gut) 28px;transform:translateY(-100%);transition:transform .4s cubic-bezier(.2,.8,.2,1);visibility:hidden;overflow:auto}
+.drawer.open{transform:none;visibility:visible}
+.drawer .top{display:flex;justify-content:space-between;align-items:center;height:52px}
+.drawer nav{display:flex;flex-direction:column;margin:20px 0 24px}
+.drawer nav a{color:var(--white);text-decoration:none;font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;font-size:44px;line-height:1.1;padding:4px 0;border-bottom:1px solid var(--line)}
+.drawer nav a[aria-current=page]{color:var(--acc);text-shadow:var(--glow)}
+.drawer .row{display:flex;gap:8px;align-items:center;margin-top:auto;flex-wrap:wrap}
+
+/* Home hero */
+.hero{position:relative;color:var(--white);min-height:min(88vh,820px);display:grid;grid-template-columns:minmax(0,1fr);overflow:hidden;background:var(--bg)}
+.hero::before{content:"";position:absolute;inset:-20%;z-index:1;pointer-events:none;background:
+  radial-gradient(30% 35% at 78% 30%,rgba(42,172,227,.35),transparent 70%),
+  radial-gradient(35% 40% at 15% 85%,rgba(0,84,155,.45),transparent 70%);animation:orbs 14s ease-in-out infinite alternate}
+@keyframes orbs{to{transform:translate3d(-4%,3%,0) scale(1.1)}}
+.hero .hex.xl{max-width:100%;white-space:normal;text-align:center}
+.slide{grid-area:1/1;position:relative;display:flex;align-items:flex-end;opacity:0;transition:opacity 1.2s ease;visibility:hidden}
+.slide.on{opacity:1;visibility:visible}
+.slide .photo{position:absolute;inset:0;border:0;opacity:.7}
+.slide .photo::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,11,18,.2),rgba(5,11,18,.6) 55%,var(--bg))}
+.slide .photo .tag-slot{top:18px;bottom:auto;z-index:2;justify-content:flex-end}
+.slide .wrap{position:relative;z-index:2;width:100%;padding-top:90px;padding-bottom:220px}
+.slide h1{max-width:12ch}
+.slide p{font-size:clamp(18px,2.2vw,22px);margin:16px 0 0;max-width:38ch;color:var(--text)}
+.hero-inner{position:relative;z-index:3;grid-area:1/1;align-self:end;width:100%}
+.hero-inner .wrap{padding-bottom:44px}
+.dots{display:flex;gap:8px;margin-top:26px}
+.dots button{width:28px;height:3px;border:0;background:var(--line2);cursor:pointer;padding:0}
+.dots button[aria-current=true]{background:var(--sky);box-shadow:var(--glow)}
+@media(min-width:900px){.slide .wrap{padding-bottom:250px}}
+
+/* Countdown: F1 style timing board */
+.countdown{padding:48px 0 56px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:linear-gradient(90deg,rgba(42,172,227,.1),transparent 60%)}
+.cd-top{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap}
+.cd-top .kicker{display:inline-flex;align-items:center;gap:10px}
+.cd-top .ev{font-size:13px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;color:var(--muted)}
+.dot{width:8px;height:8px;border-radius:50%;background:var(--green);animation:pulse 1.6s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(142,198,64,.7)}70%{box-shadow:0 0 0 10px rgba(142,198,64,0)}100%{box-shadow:0 0 0 0 rgba(142,198,64,0)}}
+.clock{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:20px}
+.unit{background:var(--panel);border:1px solid var(--line);padding:16px 4px 12px;text-align:center;clip-path:var(--cut);position:relative}
+.unit::after{content:"";position:absolute;left:0;right:0;top:50%;height:1px;background:rgba(0,84,155,.1)}
+.unit .num{display:block;font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;font-size:clamp(52px,15vw,150px);line-height:.9;color:var(--blue);font-variant-numeric:tabular-nums;text-shadow:0 0 30px rgba(42,172,227,.25)}
+.unit .lab{display:block;margin-top:8px;font-size:11px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+@media(min-width:900px){.clock{gap:14px}.unit{padding:28px 8px 18px}}
+
+/* Event cards */
+.events{display:grid;gap:14px}
+.event{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:center;background:var(--panel);border:1px solid var(--line);padding:18px;clip-path:var(--cut);transition:border-color .2s,background .2s}
+.event:hover{border-color:var(--line2);background:var(--panel2)}
+.date{width:78px;text-align:center;font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;line-height:.9;color:var(--white);border-right:1px solid var(--line);padding-right:14px}
+.date b{display:block;font-size:54px;color:var(--acc);text-shadow:var(--glow)}
+.date span{display:block;font-size:20px;letter-spacing:.06em;margin-top:2px}
+.date i{display:block;font-style:normal;font-size:12px;color:var(--muted);letter-spacing:.14em;margin-top:6px;font-family:var(--body);font-stretch:100%;font-variation-settings:"wdth" 100;font-weight:600}
+.tag{display:inline-block;font-size:11px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--acc);border:1px solid var(--line2);padding:3px 9px}
+.event h3{margin:8px 0 6px;font-size:28px}
+.meta{display:flex;flex-wrap:wrap;gap:4px 16px;margin:0;padding:0;list-style:none;color:var(--muted);font-size:15px}
+.meta li{display:inline-flex;align-items:center;gap:6px}
+.meta svg{width:15px;height:15px;color:var(--acc)}
+.event .cta{grid-column:1/-1;display:flex;gap:14px;align-items:center}
+.event .cta .hex{flex:1}
+.qr{display:none;width:84px;height:84px;border:1px dashed var(--line2);place-items:center;text-align:center;font-size:10px;font-weight:700;letter-spacing:.14em;color:var(--muted);text-transform:uppercase}
+@media(min-width:760px){.event{grid-template-columns:auto 1fr auto;gap:28px;padding:24px 28px}.event .cta{grid-column:auto}.event .cta .hex{flex:none}.qr{display:grid}}
+@media(min-width:900px){.event.big{padding:36px 40px}.event.big .date{width:120px;padding-right:24px}.event.big .date b{font-size:84px}.event.big h3{font-size:48px}}
+.event.big{border-color:var(--line2);background:linear-gradient(110deg,rgba(42,172,227,.12),var(--panel) 55%)}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(3,1fr);text-align:center}
+.stat{padding:8px 4px;border-left:1px solid var(--line)}
+.stat:first-child{border-left:0}
+.stat .n{display:block;font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;font-size:clamp(56px,14vw,140px);line-height:.9;color:var(--blue);font-variant-numeric:tabular-nums;text-shadow:0 0 30px rgba(42,172,227,.25)}
+.stat .l{display:block;margin-top:10px;font-size:12px;font-weight:600;letter-spacing:.22em;text-transform:uppercase;color:var(--acc)}
+
+/* Mission panel */
+.mission{text-align:center;overflow:hidden}
+.mission::before{content:"";position:absolute;left:50%;top:0;width:min(900px,90vw);height:100%;transform:translateX(-50%);background:radial-gradient(50% 60% at 50% 0%,rgba(42,172,227,.14),transparent 70%);pointer-events:none}
+.mission .wrap{position:relative;max-width:900px}
+.mission p{font-size:clamp(18px,2.2vw,23px);margin:20px auto 0;color:var(--text);max-width:46ch}
+.mission p b{color:var(--acc);font-weight:700;letter-spacing:.06em;text-transform:uppercase;font-size:.8em;margin-right:6px}
+.mission .btns{display:flex;flex-direction:column;align-items:center;gap:12px;margin-top:36px}
+@media(min-width:600px){.mission .btns{flex-direction:row;justify-content:center}}
+
+/* Quick links */
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line)}
+.quick a{background:var(--bg2);padding:26px 18px;text-decoration:none;display:flex;flex-direction:column;gap:14px;align-items:flex-start;transition:background .2s}
+.quick a:hover{background:var(--panel2)}
+.quick a:hover .hx{color:var(--acc);box-shadow:var(--glow)}
+.quick .hx{width:42px;height:42px;border:1px solid var(--line2);display:grid;place-items:center;color:var(--text);transition:.2s}
+.quick .hx svg{width:20px;height:20px}
+.quick b{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;color:var(--white);font-size:24px;letter-spacing:.02em;line-height:1}
+@media(min-width:760px){.quick{grid-template-columns:repeat(3,1fr)}}
+@media(min-width:1080px){.quick{grid-template-columns:repeat(6,1fr)}}
+
+/* Photo grids */
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.bento .photo{aspect-ratio:1}
+.bento .photo:first-child{grid-column:1/-1;aspect-ratio:16/10}
+@media(min-width:900px){.bento{grid-template-columns:repeat(4,1fr);gap:12px}.bento .photo:first-child{grid-column:span 2;grid-row:span 2;aspect-ratio:auto}}
+.row{display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+/* Partners strip */
+.marquee{overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 10%,#000 90%,transparent);margin-top:26px}
+.track{display:flex;gap:12px;width:max-content;animation:slide 38s linear infinite}
+.marquee:hover .track{animation-play-state:paused}
+@keyframes slide{to{transform:translateX(calc(-50% - 6px))}}
+.plogo{flex:none;width:230px;height:96px;border:1px solid var(--line);background:var(--bg2);display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:10px 16px}
+.plogo b{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;color:var(--white);font-size:22px;line-height:1}
+.plogo span{font-size:11px;color:var(--acc);letter-spacing:.18em;text-transform:uppercase;margin-top:6px;font-weight:600}
+.plogo.open{border-style:dashed}
+.plogo.open b{color:var(--muted)}
+.plogo.open span{color:var(--muted)}
+
+/* Tiles */
+.grid{display:grid;gap:14px}
+@media(min-width:760px){.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}}
+.tile{background:var(--panel);border:1px solid var(--line);padding:28px 24px;clip-path:var(--cut);position:relative;transition:border-color .2s}
+.tile::before{content:"";position:absolute;left:0;top:14px;width:2px;height:28px;background:var(--sky);box-shadow:var(--glow)}
+.tile:hover{border-color:var(--line2)}
+.tile h3{font-size:30px}
+.tile p{margin:10px 0 0;color:var(--muted)}
+.tile .num{font-size:12px;font-weight:700;color:var(--acc);display:block;margin-bottom:10px;letter-spacing:.22em}
+
+.page-hero{position:relative;overflow:hidden;padding:72px 0 56px;border-bottom:1px solid var(--line)}
+.page-hero::before{content:"";position:absolute;inset:0;background:radial-gradient(45% 90% at 90% 0%,rgba(42,172,227,.18),transparent 65%),radial-gradient(40% 80% at 0% 100%,rgba(0,84,155,.1),transparent 70%);pointer-events:none}
+.page-hero .wrap{position:relative}
+.crumb{font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);margin-bottom:18px;font-weight:600}
+@media(min-width:900px){.page-hero{padding:130px 0 96px}}
+.split{display:grid;gap:28px;align-items:center}
+@media(min-width:900px){.split{grid-template-columns:1fr 1fr;gap:64px}}
+.split .photo{aspect-ratio:4/3}
+.quote{border-left:2px solid var(--sky);padding:6px 0 6px 24px;margin:0;box-shadow:-12px 0 24px -16px rgba(42,172,227,.6)}
+.quote p{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;font-size:clamp(30px,4.6vw,58px);line-height:1;color:var(--white);margin:0}
+.quote cite{display:block;margin-top:16px;font-style:normal;font-size:12px;letter-spacing:.22em;text-transform:uppercase;color:var(--acc);font-weight:600}
+.values{display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-top:8px}
+.values span{border:1px solid var(--line2);color:var(--white);font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(22px,3vw,32px);padding:12px 26px;clip-path:var(--cut);background:var(--panel);transition:.2s}
+.values span:hover{color:var(--acc);background:var(--panel2);text-shadow:var(--glow)}
+.std{display:grid;border-top:1px solid var(--line)}
+.std div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
+.std b{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;color:var(--acc);font-size:40px;line-height:1;text-shadow:var(--glow)}
+.std p{margin:0}
+.std p strong{color:var(--white)}
+
+/* Programs */
+.prog{display:grid;border-top:1px solid var(--line)}
+.prog-item{display:grid;grid-template-columns:52px 1fr;gap:4px 16px;padding:28px 0;border-bottom:1px solid var(--line);align-items:baseline;transition:background .2s}
+.prog-item:hover h3{color:var(--acc);text-shadow:var(--glow)}
+.prog-item .n{font-size:13px;font-weight:700;letter-spacing:.2em;color:var(--acc)}
+.prog-item h3{font-size:clamp(40px,8vw,76px);transition:.2s}
+.prog-item p{grid-column:2;margin:0;color:var(--muted);font-size:18px}
+@media(min-width:900px){.prog-item{grid-template-columns:80px 1fr 1fr;align-items:center}.prog-item p{grid-column:auto}}
+
+/* Team */
+.team{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.person .photo{aspect-ratio:4/5;min-height:0}
+.person h3{font-size:24px;margin-top:14px}
+.person .role{color:var(--acc);font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-top:4px}
+.person p{margin:6px 0 0;color:var(--muted);font-size:15px}
+.person .icon{margin-left:-10px}
+@media(min-width:760px){.team{grid-template-columns:repeat(4,1fr);gap:22px}}
+
+/* Past events */
+.past{display:grid;gap:14px}
+.past-card{background:var(--panel);border:1px solid var(--line);display:flex;flex-direction:column;transition:border-color .2s}
+.past-card:hover{border-color:var(--line2)}
+.past-card .photo{aspect-ratio:16/10;border:0;border-bottom:1px solid var(--line);background-position:center 20%}
+.past-card .body{padding:20px 22px 24px;display:flex;flex-direction:column;gap:10px;flex:1}
+.past-card p{margin:0;color:var(--muted)}
+.past-card .link{margin-top:auto;padding-top:6px}
+@media(min-width:760px){.past{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1080px){.past{grid-template-columns:repeat(3,1fr)}}
+.logo-slot img{width:100%;height:100%;object-fit:cover;display:block}
+.logo-slot:has(img){border:0;background:#fff}
+
+/* Steps */
+.steps{display:grid;gap:14px}
+.step{display:grid;grid-template-columns:auto 1fr;gap:18px;align-items:start;background:var(--panel);border:1px solid var(--line);padding:26px;clip-path:var(--cut)}
+.step .k{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;font-size:64px;line-height:.8;color:var(--acc);text-shadow:var(--glow)}
+.step p{margin:8px 0 0;color:var(--muted)}
+.step .link{margin-top:12px}
+@media(min-width:900px){.steps{grid-template-columns:repeat(3,1fr)}.step{grid-template-columns:1fr}}
+
+/* Forms */
+.form{display:grid;gap:16px;background:var(--panel);border:1px solid var(--line2);padding:24px;clip-path:var(--cut);box-shadow:0 0 60px -20px rgba(42,172,227,.35)}
+@media(min-width:760px){.form{padding:44px;grid-template-columns:1fr 1fr}.form .full{grid-column:1/-1}}
+.field label{display:block;font-weight:600;font-size:12px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:8px;color:var(--muted)}
+.field input,.field select,.field textarea{width:100%;border:1px solid var(--line2);border-radius:0;padding:14px 15px;background:var(--bg);color:var(--white);font-size:17px;transition:border-color .2s,box-shadow .2s}
+.field select option{background:var(--bg)}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--acc);outline:none;box-shadow:0 0 0 3px rgba(42,172,227,.2),var(--glow)}
+.field textarea{min-height:140px;resize:vertical}
+.form-narrow{max-width:800px;margin:0 auto}
+
+/* Gallery */
+.chips{display:flex;gap:8px;overflow-x:auto;margin:0 calc(var(--gut) * -1) 24px;padding:0 var(--gut) 6px;scrollbar-width:none}
+.chips::-webkit-scrollbar{display:none}
+.chip{flex:none;border:1px solid var(--line2);background:transparent;padding:9px 16px;font-size:13px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;color:var(--text)}
+.chip:hover{color:var(--white)}
+.chip[aria-pressed=true]{background:var(--sky);border-color:var(--acc);color:#03121C;box-shadow:var(--glow)}
+.gallery{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.gallery .photo{aspect-ratio:1;min-height:0}
+@media(min-width:760px){.gallery{grid-template-columns:repeat(4,1fr);gap:12px}}
+
+.logos{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.logos .plogo{width:auto;height:130px}
+@media(min-width:760px){.logos{grid-template-columns:repeat(3,1fr);gap:16px}}
+
+/* Contact */
+.contact-list{display:grid;gap:10px}
+.c-item{display:flex;align-items:center;gap:16px;padding:18px;background:var(--panel);border:1px solid var(--line);text-decoration:none;transition:border-color .2s}
+a.c-item:hover{border-color:var(--acc)}
+.c-item .ic{width:44px;height:44px;border:1px solid var(--line2);color:var(--acc);display:grid;place-items:center;flex:none}
+.c-item .ic svg{width:20px;height:20px}
+.c-item b{display:block;font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.c-item span{font-weight:600;font-size:17px;color:var(--white);word-break:break-word}
+@media(min-width:900px){.contact{display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:start}}
+
+/* Footer */
+.footer-stripe{height:2px;background:linear-gradient(90deg,transparent,var(--blue) 20%,var(--sky) 60%,var(--green) 90%,transparent);box-shadow:0 0 20px rgba(42,172,227,.6)}
+footer{background:#03080D;color:var(--text);padding:64px 0 28px}
+footer h2{font-size:clamp(36px,7vw,64px)}
+.sub{display:flex;flex-direction:column;gap:12px;margin-top:24px;max-width:560px}
+.sub input{flex:1;border:1px solid var(--line2);background:var(--bg2);padding:15px 16px;font-size:17px;color:var(--white);border-radius:0}
+.sub input:focus{outline:none;border-color:var(--acc);box-shadow:var(--glow)}
+@media(min-width:560px){.sub{flex-direction:row;align-items:center}}
+.foot-grid{display:grid;gap:40px}
+.foot-links{display:grid;grid-template-columns:1fr 1fr;gap:4px 24px}
+.foot-links a{text-decoration:none;color:var(--text);padding:5px 0;font-size:14px;font-weight:600;letter-spacing:.12em;text-transform:uppercase}
+.foot-links a:hover{color:var(--acc)}
+footer .icon{border:1px solid var(--line2)}
+.foot-bottom{margin-top:52px;padding-top:22px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center;font-size:13px;color:var(--muted)}
+.foot-bottom a{color:var(--acc)}
+@media(min-width:900px){.foot-grid{grid-template-columns:1.3fr 1fr;align-items:end}footer{padding:96px 0 32px}}
+
+/* Toast */
+.toast{position:fixed;left:50%;bottom:24px;z-index:90;transform:translate(-50%,160%);background:var(--panel2);border:1px solid var(--sky);color:var(--white);padding:14px 20px;font-weight:600;box-shadow:var(--glow);transition:transform .35s cubic-bezier(.2,.8,.2,1);display:flex;gap:10px;align-items:center;max-width:calc(100% - 32px)}
+.toast.show{transform:translate(-50%,0)}
+
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1)}
+.reveal.in{opacity:1;transform:none}
+
+/* =========================================================
+   GIANT AC INTRO (bigger screens only)
+   ========================================================= */
+.intro{display:none}
+.intro-on .intro{display:block;height:380vh;position:relative;z-index:2}
+.stage{position:sticky;top:0;height:100vh;overflow:hidden;background:#1E0F06;color:var(--white)}
+.stage::after{content:"";position:absolute;inset:0;pointer-events:none;background:
+  linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px) 0 0/48px 48px,
+  linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px) 0 0/48px 48px}
+.heat{position:absolute;inset:0;pointer-events:none;background:radial-gradient(60% 50% at 50% 100%,rgba(255,120,30,.45),transparent 70%),radial-gradient(40% 40% at 85% 10%,rgba(255,170,60,.3),transparent 70%)}
+.chill{position:absolute;inset:0;pointer-events:none;opacity:0;background:radial-gradient(60% 55% at 50% 30%,rgba(42,172,227,.35),transparent 70%),radial-gradient(50% 50% at 50% 100%,rgba(0,84,155,.45),transparent 70%)}
+.stage canvas{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:2}
+.ac-wrap{position:absolute;left:50%;top:14vh;width:min(74vw,1160px);transform:translateX(-50%);transform-origin:50% 0;will-change:transform;z-index:3}
+.ac{position:relative;aspect-ratio:1180/330;background:linear-gradient(180deg,#1F2C3A 0%,#15202C 60%,#0F1823 100%);border-radius:2.6vw 2.6vw 2vw 2vw;border:1px solid rgba(255,255,255,.1);box-shadow:0 50px 100px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.12);cursor:pointer;transition:box-shadow .6s}
+.ac.on{box-shadow:0 50px 100px -30px rgba(0,0,0,.8),0 0 80px -10px rgba(42,172,227,.45),inset 0 1px 0 rgba(255,255,255,.12)}
+.ac::before{content:"";position:absolute;left:4%;right:4%;top:58%;height:1px;background:rgba(255,255,255,.08)}
+.ac-grille{position:absolute;left:4%;right:4%;top:9%;height:11%;background:repeating-linear-gradient(90deg,rgba(255,255,255,.07) 0 2px,transparent 2px 10px);border-radius:999px}
+.ac-strip{position:absolute;left:5%;right:5%;top:56%;height:3px;border-radius:3px;background:rgba(255,255,255,.06);transition:background .5s,box-shadow .5s}
+.ac.on .ac-strip{background:linear-gradient(90deg,transparent,var(--sky),transparent);box-shadow:0 0 18px var(--sky)}
+.ac-brand{position:absolute;left:5%;top:30%;display:flex;align-items:center;gap:1vw}
+.ac-brand .logo-slot{width:3.4vw;height:3.4vw;font-size:.5vw}
+.ac-brand .cond{font-size:2vw;color:var(--white);line-height:1}
+.ac-brand small{display:block;font-family:var(--body);font-stretch:100%;font-variation-settings:"wdth" 100;font-size:.8vw;color:var(--acc);letter-spacing:.2em;font-weight:600;margin-top:.3vw}
+.ac-display{position:absolute;right:6%;top:24%;display:flex;align-items:center;gap:1.2vw}
+.ac-temp{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;font-size:4.4vw;line-height:1;color:rgba(255,255,255,.15);font-variant-numeric:tabular-nums;transition:color .4s,text-shadow .4s;min-width:6vw;text-align:right}
+.ac-temp sup{font-size:.42em;vertical-align:top;margin-left:.1em}
+.ac.on .ac-temp{color:var(--acc);text-shadow:0 0 1.2vw rgba(42,172,227,.9)}
+.ac-led{width:.6vw;height:.6vw;border-radius:50%;background:#C2410C;box-shadow:0 0 .6vw #C2410C;transition:background .3s,box-shadow .3s}
+.ac.on .ac-led{background:var(--green);box-shadow:0 0 .9vw var(--green)}
+.ac-vent{position:absolute;left:4%;right:4%;bottom:9%;height:22%;background:#05090E;border-radius:.6vw .6vw 1.6vw 1.6vw;overflow:hidden;perspective:600px;box-shadow:inset 0 0 2vw rgba(42,172,227,0);transition:box-shadow .6s}
+.ac.on .ac-vent{box-shadow:inset 0 -1vw 2vw rgba(42,172,227,.5)}
+.ac-vent::before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(42,172,227,.12) 0 2px,transparent 2px 2.2vw)}
+.ac-flap{position:absolute;left:-1%;right:-1%;top:0;height:100%;background:linear-gradient(180deg,#273646,#18222E);transform-origin:50% 0;border-radius:.4vw .4vw 1.6vw 1.6vw;border-top:1px solid rgba(255,255,255,.08)}
+.cap{position:absolute;left:0;right:0;text-align:center;bottom:15vh;padding:0 6vw;opacity:0;transition:opacity .4s,transform .4s;transform:translateY(12px);pointer-events:none;z-index:4}
+.cap.show{opacity:1;transform:none}
+.cap h2{font-size:clamp(56px,7vw,118px);line-height:.9}
+.cap p{font-size:20px;margin:14px 0 0;color:var(--text)}
+.cap.c1 h2{color:#FFB070;text-shadow:0 0 40px rgba(255,120,30,.6)}
+.cap.c2 h2,.cap.c3 h2{text-shadow:0 0 40px rgba(42,172,227,.7)}
+.hint{position:absolute;left:50%;bottom:3vh;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;font-weight:600;color:rgba(255,255,255,.7);transition:opacity .3s;z-index:4}
+.hint .mouse{width:22px;height:36px;border:2px solid currentColor;border-radius:12px;position:relative}
+.hint .mouse::after{content:"";position:absolute;left:50%;top:6px;width:3px;height:7px;margin-left:-1.5px;background:currentColor;border-radius:2px;animation:wheel 1.6s infinite}
+@keyframes wheel{0%{opacity:0;transform:translateY(-3px)}40%{opacity:1}100%{opacity:0;transform:translateY(10px)}}
+.thermo{position:absolute;left:3vw;top:4vh;display:flex;align-items:center;gap:12px;font-size:12px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.75);z-index:4}
+.thermo .t{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;font-size:40px;letter-spacing:0;color:#FFB070;font-variant-numeric:tabular-nums;transition:color .4s}
+.thermo.cold .t{color:var(--acc);text-shadow:var(--glow)}
+.thermo svg{width:26px;height:26px;color:#FFB070}
+.thermo.cold svg{color:var(--acc)}
+.skip{position:absolute;right:3vw;top:4vh;background:transparent;border:1px solid rgba(255,255,255,.25);padding:9px 16px;font-size:12px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;color:var(--white);z-index:4}
+.skip:hover{border-color:var(--acc);color:var(--acc)}
+.whoosh{position:absolute;inset:0;background:linear-gradient(180deg,rgba(5,11,18,0),var(--bg) 75%);opacity:0;pointer-events:none;z-index:5}
+
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+.hero,.stage,footer{--bg2:#0C1A27;--panel:#0C1A27;--panel2:#10222F;--line:rgba(122,186,236,.14);--line2:rgba(122,186,236,.28);--white:#F2F7FB;--text:#C3D0DC;--muted:#9AABBC;--acc:var(--sky);--headc:#F2F7FB;--glow:0 0 24px rgba(42,172,227,.45)}
+.hero{background:#050B12}
+.slide .photo::after{background:linear-gradient(180deg,rgba(5,11,18,.2),rgba(5,11,18,.6) 55%,rgba(5,11,18,.92))!important}
+.event h3,.past-card h3,.person h3,.step h3,.tile h3{color:var(--white)}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-ig" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="17.3" cy="6.7" r="1.2" fill="currentColor"/></symbol>
+  <symbol id="i-in" viewBox="0 0 24 24"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.06c.53-1 1.83-2.06 3.77-2.06 4.03 0 4.77 2.65 4.77 6.1V21h-4v-5.2c0-1.24-.02-2.84-1.73-2.84-1.73 0-2 1.35-2 2.75V21h-4z"/></symbol>
+  <symbol id="i-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-x" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/></symbol>
+  <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 7v5l3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21z" fill="none" stroke="currentColor" stroke-width="2"/><circle cx="12" cy="9.5" r="2.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path d="M4 7l8 6 8-6" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-cam" viewBox="0 0 24 24"><path d="M4 8h3l2-3h6l2 3h3v11H4z" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/><circle cx="12" cy="13" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-sun" viewBox="0 0 24 24"><circle cx="12" cy="12" r="4.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M12 2v2.5M12 19.5V22M2 12h2.5M19.5 12H22M4.9 4.9l1.8 1.8M17.3 17.3l1.8 1.8M4.9 19.1l1.8-1.8M17.3 6.7l1.8-1.8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+  <symbol id="i-snow" viewBox="0 0 24 24"><path d="M12 2v20M3.3 7l17.4 10M3.3 17L20.7 7M9 4l3 2 3-2M9 20l3-2 3 2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></symbol>
+  <symbol id="i-book" viewBox="0 0 24 24"><path d="M4 5a2 2 0 0 1 2-2h13v16H6a2 2 0 0 0-2 2z M4 5v16" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-cap" viewBox="0 0 24 24"><path d="M2 9l10-5 10 5-10 5z M6 11v5c3 2.5 9 2.5 12 0v-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-trophy" viewBox="0 0 24 24"><path d="M8 4h8v5a4 4 0 0 1-8 0zM8 6H4a3 3 0 0 0 4 4M16 6h4a3 3 0 0 1-4 4M12 13v4M8 21h8M9 17h6" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/></symbol>
+  <symbol id="i-globe" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path d="M3 12h18M12 3c3 3 3 15 0 18M12 3c-3 3-3 15 0 18" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+  <symbol id="i-doc" viewBox="0 0 24 24"><path d="M6 2h9l5 5v15H6z M14 2v6h6 M9 13h8M9 17h8" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></symbol>
+  <symbol id="i-users" viewBox="0 0 24 24"><circle cx="9" cy="8" r="3.5" fill="none" stroke="currentColor" stroke-width="2"/><path d="M2 20c.8-3.8 3.6-5.5 7-5.5s6.2 1.7 7 5.5M16 4.5a3.5 3.5 0 0 1 0 7M18 14.8c2 .7 3.4 2.4 4 5.2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></symbol>
+</svg>
+
+<!-- =========================================================
+     GIANT AC INTRO  (big screens only, scroll to switch it on)
+     ========================================================= -->
+<div class="intro" id="intro" aria-hidden="true">
+  <div class="stage" id="stage">
+    <div class="heat" id="heat"></div><div class="chill" id="chill"></div>
+    <canvas id="breeze"></canvas>
+    <div class="thermo" id="thermo"><svg id="thermoIcon"><use href="#i-sun"/></svg><span><span class="t" id="outT">46</span>°C in Dubai</span></div>
+    <button class="skip" id="skipIntro">Skip intro</button>
+
+    <div class="ac-wrap" id="acWrap">
+      <div class="ac" id="ac" title="Click me">
+        <div class="ac-grille"></div><div class="ac-strip"></div>
+        <div class="ac-brand"><span class="logo-slot"><img src="images/branch-logo.jpg" alt="ASHRAE RIT Dubai Branch logo"></span><span class="cond">ASHRAE RIT Dubai<small>STUDENT BRANCH</small></span></div>
+        <div class="ac-display"><span class="ac-temp" id="acTemp">--</span><span class="ac-led"></span></div>
+        <div class="ac-vent"><div class="ac-flap" id="flap"></div></div>
+      </div>
+    </div>
+
+    <div class="cap c1 show" data-a="0" data-b=".14"><h2>It's 46°C outside.</h2><p>Let's fix that.</p></div>
+    <div class="cap c2" data-a=".22" data-b=".6"><h2>Ahh. Better.</h2><p>That's heating, ventilation and air conditioning. That's what we do.</p></div>
+    <div class="cap c3" data-a=".68" data-b=".93"><h2>Ride the breeze in.</h2><p>Welcome to ASHRAE RIT Dubai.</p></div>
+    <div class="hint" id="hint"><span class="mouse"></span>Scroll to switch it on</div>
+    <div class="whoosh" id="whoosh"></div>
+  </div>
+</div>
+
+<!-- ============ HEADER (every page) ============ -->
+<header class="navbar" id="siteTop">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="ASHRAE RIT Dubai home">
+      <span class="logo-slot"><img src="images/branch-logo.jpg" alt="ASHRAE RIT Dubai Branch logo"></span>
+      <span><span class="cond">ASHRAE RIT Dubai</span><small>STUDENT BRANCH</small></span>
+    </a>
+    <nav aria-label="Main">
+      <a href="#home">Home</a><a href="#about">About</a><a href="#team">Team</a><a href="#events">Events</a><a href="#programs">Programs</a><a href="#join">Join</a><a href="#sponsors">Partners</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+    </nav>
+    <a class="icon soc" href="#" data-todo="Instagram" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+    <a class="icon soc" href="https://ae.linkedin.com/company/ashrae-rit-dubai-student-branch-falconc" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+    <a class="hex green sm" href="#join">Join</a>
+    <button class="icon menu-btn" aria-label="Open menu" aria-expanded="false" id="menuBtn"><svg><use href="#i-menu"/></svg></button>
+  </div>
+</header>
+
+<div class="drawer" id="drawer" aria-hidden="true">
+  <div class="top">
+    <span class="cond" style="color:#fff;font-size:22px">ASHRAE RIT Dubai</span>
+    <button class="icon" aria-label="Close menu" id="closeBtn"><svg><use href="#i-x"/></svg></button>
+  </div>
+  <nav aria-label="Mobile">
+    <a href="#home">Home</a><a href="#about">About</a><a href="#team">Team</a><a href="#events">Events</a><a href="#programs">Programs</a><a href="#join">Join</a><a href="#sponsors">Partners</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="row">
+    <a class="icon" href="#" data-todo="Instagram" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+    <a class="icon" href="https://ae.linkedin.com/company/ashrae-rit-dubai-student-branch-falconc" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+    <a class="hex green" href="#join" style="margin-left:auto">Join ASHRAE RIT Dubai</a>
+  </div>
+</div>
+
+<main>
+
+<!-- ======================= HOME ======================= -->
+<div data-page="home" data-title="ASHRAE RIT Dubai">
+  <section class="hero" style="padding:0" aria-roledescription="carousel">
+    <div class="slide on">
+      <div class="photo" data-img="hero1" data-label="Hero photo · branch group shot"></div>
+      <div class="wrap"><h1>We keep Dubai <span class="glow">cool.</span></h1><p>The ASHRAE student branch at RIT Dubai.</p></div>
+    </div>
+    <div class="slide">
+      <div class="photo" data-img="hero2" data-label="Hero photo · Falcon Roundtable"></div>
+      <div class="wrap"><h1>100+ engineers in the making.</h1><p>And room for you.</p></div>
+    </div>
+    <div class="slide">
+      <div class="photo" data-img="hero3" data-label="Hero photo · workshop or site visit"></div>
+      <div class="wrap"><h1>Plugged into a global society.</h1><p>Backed by ASHRAE Falcon Chapter UAE.</p></div>
+    </div>
+    <div class="hero-inner"><div class="wrap">
+      <a class="hex green xl" href="#join">Join ASHRAE RIT Dubai</a>
+      <div class="dots" id="dots"></div>
+    </div></div>
+  </section>
+
+  <section class="countdown">
+    <div class="wrap">
+      <div class="cd-top"><span class="kicker"><span class="dot"></span>Next event starts in</span><span class="ev" id="cdName"></span></div>
+      <div class="clock" id="clock">
+        <div class="unit"><span class="num" data-u="d">00</span><span class="lab">Days</span></div>
+        <div class="unit"><span class="num" data-u="h">00</span><span class="lab">Hours</span></div>
+        <div class="unit"><span class="num" data-u="m">00</span><span class="lab">Min</span></div>
+        <div class="unit"><span class="num" data-u="s">00</span><span class="lab">Sec</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2 class="head reveal">Save your seat.</h2>
+      <div id="nextEvent" class="reveal"></div>
+    </div>
+  </section>
+
+  <section class="tight" style="padding-top:0">
+    <div class="wrap stats">
+      <div class="stat reveal"><span class="n" data-count="100" data-suffix="+">0</span><span class="l">Members</span></div>
+      <div class="stat reveal"><span class="n" data-count="400" data-suffix="+">0</span><span class="l">Followers</span></div>
+      <div class="stat reveal"><span class="n" data-count="3">0</span><span class="l">Partners</span></div>
+    </div>
+  </section>
+
+  <section class="mission">
+    <div class="wrap">
+      <h2 class="reveal">ASHRAE's mission and vision</h2>
+      <p class="reveal"><b>Mission:</b> To serve humanity by advancing the arts and sciences of heating, ventilation, air conditioning, refrigeration and their allied fields.</p>
+      <p class="reveal"><b>Vision:</b> A healthy and sustainable built environment for all.</p>
+      <div class="btns reveal"><a class="hex green" href="#about">What is ASHRAE?</a><a class="hex green" href="#join">Become a member</a></div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap">
+      <div class="quick reveal">
+        <a href="https://www.ashrae.org/communities/student-zone" target="_blank" rel="noopener"><span class="hx"><svg><use href="#i-cap"/></svg></span><b>Student Zone</b></a>
+        <a href="https://www.ashrae.org/communities/student-zone/scholarships-and-grants/scholarship-program" target="_blank" rel="noopener"><span class="hx"><svg><use href="#i-trophy"/></svg></span><b>Scholarships</b></a>
+        <a href="https://www.ashrae.org/communities/student-zone" target="_blank" rel="noopener"><span class="hx"><svg><use href="#i-doc"/></svg></span><b>Design Competition</b></a>
+        <a href="https://www.ashrae.org/technical-resources/standards-and-guidelines" target="_blank" rel="noopener"><span class="hx"><svg><use href="#i-book"/></svg></span><b>Standards</b></a>
+        <a href="https://www.ashrae.org/society-groups/chapters/list-of-ashrae-chapters-and-homepages" target="_blank" rel="noopener"><span class="hx"><svg><use href="#i-users"/></svg></span><b>Falcon Chapter UAE</b></a>
+        <a href="https://www.ashrae.org" target="_blank" rel="noopener"><span class="hx"><svg><use href="#i-globe"/></svg></span><b>ASHRAE Global</b></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mist">
+    <div class="wrap">
+      <div class="row head">
+        <h2 class="reveal">Fresh from the camera.</h2>
+        <a class="link" href="#gallery">See the gallery</a>
+      </div>
+      <div class="bento" id="latestPhotos"></div>
+    </div>
+  </section>
+
+  <section class="tight">
+    <div class="wrap center"><span class="kicker">Proudly backed by</span></div>
+    <div class="marquee"><div class="track" id="partnerTrack"></div></div>
+  </section>
+</div>
+
+<!-- ======================= ABOUT ======================= -->
+<div data-page="about" data-title="About" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / About</div>
+      <h1>We're ASHRAE<br>at RIT Dubai.</h1>
+      <p class="lead">We talk HVAC, energy and buildings that don't waste the planet.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="reveal">
+        <h2>So what is ASHRAE?</h2>
+        <p class="lead">The American Society of Heating, Refrigerating and Air-Conditioning Engineers. A global society that started in New York in 1894 and now has members in 130+ countries.</p>
+        <p class="lead">They write the standards that decide how buildings breathe, stay comfortable and use energy. Pretty much every building you've been in today followed one.</p>
+      </div>
+      <div class="photo reveal" data-img="about1" data-label="Photo · branch at an ASHRAE event"></div>
+    </div>
+  </section>
+
+  <section class="mist">
+    <div class="wrap">
+      <h2 class="head reveal">Standards you'll hear about</h2>
+      <div class="std reveal">
+        <div><b>90.1</b><p><strong>Energy.</strong> How efficient a building has to be.</p></div>
+        <div><b>62.1</b><p><strong>Ventilation.</strong> How much fresh air people need inside.</p></div>
+        <div><b>55</b><p><strong>Thermal comfort.</strong> Why the room feels just right, or doesn't.</p></div>
+        <div><b>Handbook</b><p><strong>The bible.</strong> Four volumes every HVAC engineer reaches for.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <figure class="quote reveal">
+        <p>"To serve humanity by advancing the arts and sciences of heating, ventilation, air conditioning, refrigeration and their allied fields."</p>
+        <cite>ASHRAE's mission</cite>
+      </figure>
+    </div>
+  </section>
+
+  <section class="mist center">
+    <div class="wrap">
+      <h2 class="head reveal">What we stand for</h2>
+      <div class="values reveal"><span>Excellence</span><span>Integrity</span><span>Collaboration</span><span>Volunteerism</span><span>Diversity</span><span>Commitment</span></div>
+      <p class="lead reveal" style="margin-top:28px">ASHRAE's six core values. We try to live them at every event.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap split">
+      <div class="photo reveal" data-img="about2" data-label="Photo · RIT Dubai campus"></div>
+      <div class="reveal">
+        <h2>Our branch</h2>
+        <p class="lead">We live in RIT Dubai's Department of Mechanical and Industrial Engineering. We're the link between campus and ASHRAE Falcon Chapter UAE, so you get talks, site visits and real industry people.</p>
+        <a class="hex" style="margin-top:24px" href="https://www.ashrae.org/communities/student-zone" target="_blank" rel="noopener">Visit ASHRAE Student Zone</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="mist">
+    <div class="wrap">
+      <h2 class="head reveal">What you get</h2>
+      <div class="grid g4">
+        <div class="tile reveal"><span class="num">01</span><h3>Real contacts</h3><p>Meet the engineers who hire.</p></div>
+        <div class="tile reveal"><span class="num">02</span><h3>Site visits</h3><p>See what's behind the ceiling tiles.</p></div>
+        <div class="tile reveal"><span class="num">03</span><h3>Scholarships</h3><p>ASHRAE funds students every year.</p></div>
+        <div class="tile reveal"><span class="num">04</span><h3>Competitions</h3><p>Enter the ASHRAE Student Design Competition.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= TEAM ======================= -->
+<div data-page="team" data-title="Team" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Team</div>
+      <h1>Meet the board.</h1>
+      <p class="lead">Students running it for students. Say hi.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap"><div class="team" id="team"></div></div>
+  </section>
+  <section class="mist">
+    <div class="wrap split">
+      <div class="photo reveal" style="aspect-ratio:1;max-width:420px" data-img="advisor" data-label="Photo · faculty advisor"></div>
+      <div class="reveal">
+        <h2>Our faculty advisor</h2>
+        <p class="lead">Dr. Mohamed Samaha, Department of Mechanical Engineering. The one who keeps us on track.</p>
+        <a class="icon" href="#" data-todo="LinkedIn" aria-label="Advisor on LinkedIn" style="margin:16px 0 0 -8px"><svg><use href="#i-in"/></svg></a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= EVENTS ======================= -->
+<div data-page="events" data-title="Events" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Events</div>
+      <h1>Events</h1>
+      <p class="lead">Come to one event. You'll get it.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <h2 class="head reveal">Coming up</h2>
+      <div class="events" id="upcoming"></div>
+    </div>
+  </section>
+  <section class="mist">
+    <div class="wrap">
+      <h2 class="head reveal">Been there. Done that.</h2>
+      <div class="past" id="past"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= PROGRAMS ======================= -->
+<div data-page="programs" data-title="Programs" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Programs</div>
+      <h1>What we run</h1>
+      <p class="lead">Five things, on repeat, all year.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap prog">
+      <div class="prog-item reveal"><span class="n">01</span><h3>Seminars</h3><p>One topic. Someone who knows it cold. Like Ethics in the Engineering Profession and Job Prospects in HVAC.</p></div>
+      <div class="prog-item reveal"><span class="n">02</span><h3>Site visits</h3><p>Plant rooms, cooling towers and the stuff hiding in the ceiling.</p></div>
+      <div class="prog-item reveal"><span class="n">03</span><h3>Roundtables</h3><p>Students and Falcon Chapter pros at one table. Real talk.</p></div>
+      <div class="prog-item reveal"><span class="n">04</span><h3>Competitions</h3><p>Two 2nd places at NEXUS '26. The ASHRAE Student Design Competition is next.</p></div>
+      <div class="prog-item reveal"><span class="n">05</span><h3>Workshops</h3><p>Hands on. Like our 8 week Energy Auditing Workshop.</p></div>
+    </div>
+  </section>
+  <section class="mission">
+    <div class="wrap">
+      <h2 class="reveal">Got an idea?</h2>
+      <p class="reveal">Pitch us your event. We'll help you run it.</p>
+      <div class="btns reveal"><a class="hex green" href="#contact">Pitch an idea</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= JOIN ======================= -->
+<div data-page="join" data-title="Join" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Join</div>
+      <h1>Join the crew.</h1>
+      <p class="lead">Takes five minutes. Seriously.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap grid g3">
+      <div class="tile reveal"><h3>Meet the industry</h3><p>Before you need a job, not after.</p></div>
+      <div class="tile reveal"><h3>Go global</h3><p>Scholarships, grants and the Student Design Competition.</p></div>
+      <div class="tile reveal"><h3>Stand out</h3><p>ASHRAE on your CV says you mean it.</p></div>
+    </div>
+  </section>
+
+  <section class="mist">
+    <div class="wrap">
+      <h2 class="head reveal">Three steps</h2>
+      <div class="steps">
+        <div class="step reveal"><span class="k">1</span><div><h3>Go ASHRAE</h3><p>Become a student member on ashrae.org.</p><a class="link" href="https://www.ashrae.org/communities/student-zone/membership-and-meetings/student-membership-benefits" target="_blank" rel="noopener">Student membership</a></div></div>
+        <div class="step reveal"><span class="k">2</span><div><h3>Tell us</h3><p>Fill the form below so we know you're in.</p></div></div>
+        <div class="step reveal"><span class="k">3</span><div><h3>Show up</h3><p>Pick an event. Bring a friend.</p><a class="link" href="#events">See events</a></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap form-narrow">
+      <h2 class="head center reveal">Count me in</h2>
+      <form class="form reveal" data-msg="You're in. Welcome to the crew!">
+        <div class="field"><label for="j-name">Full name</label><input id="j-name" required autocomplete="name"></div>
+        <div class="field"><label for="j-email">RIT email</label><input id="j-email" type="email" required autocomplete="email"></div>
+        <div class="field"><label for="j-major">Major</label>
+          <select id="j-major" required>
+            <option value="" selected disabled>Choose your major</option>
+            <optgroup label="Engineering">
+              <option>Computer Engineering</option><option>Electrical Engineering</option><option>Industrial Engineering</option><option>Mechanical Engineering</option>
+            </optgroup>
+            <optgroup label="Computing">
+              <option>Computing and Information Technologies</option><option>Management Information Systems</option>
+            </optgroup>
+            <optgroup label="Business">
+              <option>Finance</option><option>Global Business Management</option>
+            </optgroup>
+            <optgroup label="Science">
+              <option>Psychology</option>
+            </optgroup>
+            <option>Graduate program</option><option>Other</option>
+          </select></div>
+        <div class="field"><label for="j-year">Year</label>
+          <select id="j-year" required><option value="" selected disabled>Choose your year</option><option>1st year</option><option>2nd year</option><option>3rd year</option><option>4th year</option><option>Grad</option></select></div>
+        <div class="field full"><label for="j-id">ASHRAE member number (if you have one)</label><input id="j-id"></div>
+        <button class="hex green xl full" type="submit" style="width:100%">I'm in</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= PARTNERS ======================= -->
+<div data-page="sponsors" data-title="Partners" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Partners</div>
+      <h1>Our partners</h1>
+      <p class="lead">The people backing the next wave of engineers. Thank you.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap logos" id="logoWall"></div>
+  </section>
+  <section class="mist">
+    <div class="wrap">
+      <h2 class="head reveal">Why partner with us?</h2>
+      <div class="grid g2">
+        <div class="tile reveal"><h3>Meet hires early</h3><p>Get in front of future engineers first.</p></div>
+        <div class="tile reveal"><h3>Back the future</h3><p>Help build a healthier, greener built environment.</p></div>
+      </div>
+    </div>
+  </section>
+  <section class="mission">
+    <div class="wrap">
+      <h2 class="reveal">Want to work with us? Let's talk.</h2>
+      <div class="btns reveal"><a class="hex green xl" href="#contact">Get in touch</a></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= GALLERY ======================= -->
+<div data-page="gallery" data-title="Gallery" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Gallery</div>
+      <h1>Gallery</h1>
+      <p class="lead">Our events, unfiltered. Well, mostly.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap">
+      <div class="chips" id="chips" role="toolbar" aria-label="Albums"></div>
+      <div class="gallery" id="gallery"></div>
+    </div>
+  </section>
+</div>
+
+<!-- ======================= CONTACT ======================= -->
+<div data-page="contact" data-title="Contact" hidden>
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="crumb">Home / Contact</div>
+      <h1>Say hi.</h1>
+      <p class="lead">Questions, ideas, sponsorship. We read everything.</p>
+    </div>
+  </section>
+  <section>
+    <div class="wrap contact">
+      <div class="contact-list">
+        <a class="c-item reveal" href="mailto:ashrae-ritdubai@rit.edu"><span class="ic"><svg><use href="#i-mail"/></svg></span><div><b>Email</b><span>ashrae-ritdubai@rit.edu</span></div></a>
+        <a class="c-item reveal" href="#" data-todo="Instagram"><span class="ic"><svg><use href="#i-ig"/></svg></span><div><b>Instagram</b><span>Add our handle</span></div></a>
+        <a class="c-item reveal" href="https://ae.linkedin.com/company/ashrae-rit-dubai-student-branch-falconc" target="_blank" rel="noopener"><span class="ic"><svg><use href="#i-in"/></svg></span><div><b>LinkedIn</b><span>ASHRAE RIT Dubai Branch</span></div></a>
+        <div class="c-item reveal"><span class="ic"><svg><use href="#i-pin"/></svg></span><div><b>Find us</b><span>RIT Dubai, Dubai Silicon Oasis</span></div></div>
+      </div>
+      <form class="form reveal" data-msg="Message sent. We'll get back to you soon.">
+        <div class="field"><label for="c-name">Name</label><input id="c-name" required autocomplete="name"></div>
+        <div class="field"><label for="c-email">Email</label><input id="c-email" type="email" required autocomplete="email"></div>
+        <div class="field full"><label for="c-topic">What's it about?</label>
+          <select id="c-topic"><option>Just saying hi</option><option>Sponsorship</option><option>Speaking at an event</option><option>Joining the board</option></select></div>
+        <div class="field full"><label for="c-msg">Message</label><textarea id="c-msg" required></textarea></div>
+        <button class="hex xl full" type="submit" style="width:100%">Send it</button>
+      </form>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<!-- ============ FOOTER (every page) ============ -->
+<div class="footer-stripe"></div>
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <h2>Never miss an event.</h2>
+        <form class="sub" data-msg="You're on the list. See you soon!">
+          <label class="sr" for="f-email">Email</label>
+          <input id="f-email" type="email" placeholder="Your email" required autocomplete="email">
+          <button class="hex green" type="submit">Subscribe</button>
+        </form>
+      </div>
+      <div>
+        <div class="foot-links">
+          <a href="#about">About</a><a href="#events">Events</a><a href="#team">Team</a><a href="#programs">Programs</a><a href="#sponsors">Partners</a><a href="#gallery">Gallery</a><a href="#contact">Contact</a><a href="#join">Join</a>
+        </div>
+        <div style="display:flex;gap:10px;margin-top:22px;align-items:center;flex-wrap:wrap">
+          <a class="icon" href="#" data-todo="Instagram" aria-label="Instagram"><svg><use href="#i-ig"/></svg></a>
+          <a class="icon" href="https://ae.linkedin.com/company/ashrae-rit-dubai-student-branch-falconc" target="_blank" rel="noopener" aria-label="LinkedIn"><svg><use href="#i-in"/></svg></a>
+          <a class="hex green sm" href="#join" style="margin-left:auto">Join ASHRAE RIT Dubai</a>
+        </div>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© <span id="yr">2026</span> ASHRAE RIT Dubai Student Branch · Part of ASHRAE Falcon Chapter UAE</span>
+      <a href="https://www.ashrae.org" target="_blank" rel="noopener">ashrae.org</a>
+    </div>
+  </div>
+</footer>
+
+<div class="toast" id="toast" role="status"><svg width="20" height="20" style="color:var(--green)"><use href="#i-check"/></svg><span></span></div>
+
+<script>
+/* =========================================================
+   EDIT HERE
+   PHOTOS: put files in the /images folder with these names.
+   Missing files show a labelled slot instead.
+   EVENTS: copy one line to add an event.
+   ========================================================= */
+/* Photos below come from the branch's own LinkedIn posts. */
+const PHOTOS = {
+  hero1:"images/nexus-5.jpg", hero2:"images/inaug-4.jpg", hero3:"images/inaug-3.jpg",
+  about1:"images/inaug-5.jpg", about2:"images/inaug-1.jpg", advisor:"",
+  latest:["images/nexus-1.jpg","images/inaug-2.jpg","images/inaug-4.jpg","images/nexus-2.jpg","images/inaug-5.jpg"],
+};
+const EVENTS = [
+  { title:"Smart Buildings Workshop", type:"Workshop",   start:"2026-11-26T17:30:00+04:00", time:"5:30 PM", room:"Room TBC",           register:"#" },
+  { title:"Chiller Plant Site Visit", type:"Site visit", start:"2026-12-10T09:00:00+04:00", time:"9:00 AM", room:"Meet at main lobby", register:"#" },
+  { title:"Energy Modelling Bootcamp",type:"Workshop",   start:"2027-01-21T16:00:00+04:00", time:"4:00 PM", room:"Room TBC",           register:"#" },
+];
+const PAST = [
+  { title:"Professional Ethics Seminar", type:"Seminar",     when:"16 Nov 2026", img:"images/ethics-poster.jpg",    album:"Ethics Seminar", line:"Dr. Ahmed Alaa Eldin on integrity, honesty and what engineers owe the people who trust their work." },
+  { title:"Job Prospects in HVAC",       type:"Talk",        when:"11 Nov 2026", img:"images/hvac-jobs-poster.jpg", album:"Job Prospects in HVAC", line:"Yousef Odeh from Falcon Chapter and Danfoss on where an HVAC career can take you." },
+  { title:"NEXUS '26",                   type:"Competition", when:"24 Oct 2026", img:"images/nexus-5.jpg",          album:"NEXUS '26", line:"Two teams. Two second places. Hospital design and ER tech, built in a few hours at AUS." },
+  { title:"Branch Inauguration",         type:"Launch",      when:"2026",        img:"images/inaug-3.jpg",          album:"Inauguration", line:"Day one. Dr. Chithirai Pon Selvan from Falcon Chapter on why ASHRAE matters." },
+  { title:"Falcon Roundtable",           type:"Roundtable",  when:"Date TBC",    img:"",                            album:"", line:"Falcon Chapter pros and students at one table. Big questions, honest answers." },
+];
+const TEAM = [
+  ["President","Keeps the whole thing moving."],
+  ["Vice President","Right hand. Also the backup plan."],
+  ["Secretary","Knows where every file lives."],
+  ["Treasurer","Makes the budget stretch."],
+  ["Events Lead","Turns ideas into actual events."],
+  ["Media Lead","The reason our feed looks good."],
+  ["Membership Lead","Your first hello when you join."],
+  ["Partnerships Lead","Brings the partners in."],
+];
+const PARTNERS = [
+  ["ASHRAE Falcon Chapter UAE","Parent chapter"],
+  ["RIT Dubai","Our campus"],
+  ["Mechanical & Industrial Eng.","Home department"],
+  ["Your company here","Sponsor slot",true],
+  ["Your company here","Sponsor slot",true],
+  ["Your company here","Sponsor slot",true],
+];
+const ALBUMS = {
+  "NEXUS '26":["images/nexus-1.jpg","images/nexus-2.jpg","images/nexus-3.jpg","images/nexus-5.jpg"],
+  "Inauguration":["images/inaug-1.jpg","images/inaug-2.jpg","images/inaug-3.jpg","images/inaug-4.jpg","images/inaug-5.jpg"],
+  "Ethics Seminar":["images/ethics-poster.jpg"],
+  "Job Prospects in HVAC":["images/hvac-jobs-poster.jpg"],
+};
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const tz = { timeZone:"Asia/Dubai" };
+const camera = `<svg><use href="#i-cam"/></svg>`;
+const photo = (src, label, extra="") => `<div class="photo ${extra}" data-src="${src||""}" data-label="${label}"></div>`;
+
+function hydratePhotos(root=document){
+  root.querySelectorAll(".photo:not([data-ready])").forEach(el=>{
+    el.dataset.ready = 1;
+    const key = el.dataset.img, src = key ? PHOTOS[key] : el.dataset.src;
+    if(!el.querySelector(".tag-slot")) el.insertAdjacentHTML("beforeend",`<span class="tag-slot">${camera}${el.dataset.label||"Photo"}</span>`);
+    if(!src) return;
+    const im = new Image();
+    im.onload = () => { el.style.backgroundImage = `url("${src}")`; el.classList.add("loaded"); };
+    im.src = src;
+  });
+}
+
+function eventCard(e, big){
+  const d = new Date(e.start);
+  const day = d.toLocaleDateString("en-GB",{...tz,day:"numeric"});
+  const mon = d.toLocaleDateString("en-GB",{...tz,month:"short"});
+  const wd  = d.toLocaleDateString("en-GB",{...tz,weekday:"short"});
+  return `<article class="event${big?" big":""}">
+    <div class="date"><b>${day}</b><span>${mon}</span><i>${wd}</i></div>
+    <div><span class="tag">${e.type}</span><h3>${e.title}</h3>
+      <ul class="meta"><li><svg><use href="#i-clock"/></svg>${e.time}</li><li><svg><use href="#i-pin"/></svg>${e.room}</li></ul></div>
+    <div class="cta"><a class="hex" href="${e.register}">Register</a><div class="qr">QR<br>code</div></div>
+  </article>`;
+}
+
+/* ---------- render ---------- */
+const upcoming = EVENTS.filter(e => new Date(e.start) > Date.now()).sort((a,b)=>new Date(a.start)-new Date(b.start));
+const next = upcoming[0];
+$("#nextEvent").innerHTML = next ? eventCard(next,true) : `<p class="lead">New events dropping soon. Follow us on Instagram.</p>`;
+$("#cdName").textContent = next ? next.title : "";
+$("#upcoming").innerHTML = upcoming.map(e=>`<div class="reveal">${eventCard(e)}</div>`).join("");
+$("#past").innerHTML = PAST.map(p=>`<article class="past-card reveal">
+    ${photo(p.img, p.title)}
+    <div class="body"><span class="tag" style="align-self:flex-start">${p.type} · ${p.when}</span><h3>${p.title}</h3><p>${p.line}</p>
+    ${p.album?`<a class="link" href="#gallery" data-album="${p.album}">See photos</a>`:""}</div></article>`).join("");
+
+const latestLabels = ["NEXUS '26","Inauguration","Inauguration","NEXUS '26","Inauguration"];
+$("#latestPhotos").innerHTML = PHOTOS.latest.map((s,i)=>photo(s, latestLabels[i])).join("");
+
+const plogo = ([n,s,open]) => `<div class="plogo${open?" open":""}"><b>${n}</b><span>${s}</span></div>`;
+const strip = PARTNERS.map(plogo).join("");
+$("#partnerTrack").innerHTML = strip + strip;
+$("#logoWall").innerHTML = PARTNERS.map(p=>`<div class="reveal">${plogo(p)}</div>`).join("");
+
+$("#team").innerHTML = TEAM.map(([role,line],i)=>`<div class="person reveal">
+    ${photo("", role)}
+    <h3>Name Surname</h3><div class="role">${role}</div><p>${line}</p>
+    <a class="icon" href="#" data-todo="LinkedIn" aria-label="Board member on LinkedIn"><svg><use href="#i-in"/></svg></a></div>`).join("");
+
+let album = "All";
+const names = Object.keys(ALBUMS);
+function renderGallery(){
+  $("#chips").innerHTML = ["All",...names].map(a=>`<button class="chip" aria-pressed="${a===album}" data-a="${a}">${a}</button>`).join("");
+  const list = album==="All" ? names : [album];
+  $("#gallery").innerHTML = list.flatMap(a=>ALBUMS[a].map((src,i)=>photo(src, `${a} ${i+1}`))).join("");
+  hydratePhotos($("#gallery"));
+}
+$("#chips").addEventListener("click",e=>{ const b=e.target.closest(".chip"); if(b){ album=b.dataset.a; renderGallery(); }});
+document.addEventListener("click",e=>{ const l=e.target.closest("[data-album]"); if(l){ album=ALBUMS[l.dataset.album]?l.dataset.album:"All"; renderGallery(); }});
+renderGallery();
+hydratePhotos();
+
+/* ---------- hero carousel ---------- */
+const slides = [...document.querySelectorAll(".slide")];
+let si = 0, timer;
+$("#dots").innerHTML = slides.map((_,i)=>`<button aria-label="Slide ${i+1}" aria-current="${i===0}"></button>`).join("");
+const dots = [...document.querySelectorAll("#dots button")];
+function goSlide(i){ si=(i+slides.length)%slides.length; slides.forEach((s,k)=>s.classList.toggle("on",k===si)); dots.forEach((d,k)=>d.setAttribute("aria-current",k===si)); }
+function auto(){ clearInterval(timer); timer=setInterval(()=>goSlide(si+1),6000); }
+dots.forEach((d,i)=>d.onclick=()=>{ goSlide(i); auto(); });
+auto();
+
+/* ---------- countdown ---------- */
+const units = { d:$('[data-u="d"]'), h:$('[data-u="h"]'), m:$('[data-u="m"]'), s:$('[data-u="s"]') };
+function tick(){
+  if(!next) return;
+  const t = Math.max(0, new Date(next.start) - Date.now())/1000;
+  const v = { d:Math.floor(t/86400), h:Math.floor(t%86400/3600), m:Math.floor(t%3600/60), s:Math.floor(t%60) };
+  for(const k in v) units[k].textContent = String(v[k]).padStart(2,"0");
+}
+tick(); setInterval(tick,1000);
+
+/* ---------- router (click driven, so it works inside any in-app browser) ---------- */
+const pages = [...document.querySelectorAll("[data-page]")];
+const links = [...document.querySelectorAll(".navbar nav a, .drawer nav a")];
+const isPage = id => pages.some(p=>p.dataset.page===id);
+const intro = $("#intro");
+try{ document.documentElement.classList.toggle("intro-on", matchMedia("(min-width:900px) and (hover:hover)").matches && !matchMedia("(prefers-reduced-motion: reduce)").matches); }catch(e){}
+const introOn =() => document.documentElement.classList.contains("intro-on");
+function show(id, first){
+  if(!isPage(id)) id = "home";
+  pages.forEach(p=>p.hidden = p.dataset.page!==id);
+  links.forEach(a=>{ if(a.getAttribute("href")==="#"+id) a.setAttribute("aria-current","page"); else a.removeAttribute("aria-current"); });
+  intro.hidden = id!=="home";
+  const pg = pages.find(p=>p.dataset.page===id);
+  document.title = id==="home" ? "ASHRAE RIT Dubai" : pg.dataset.title + " · ASHRAE RIT Dubai";
+  closeMenu();
+  const y = (id==="home" && first) ? 0 : (introOn() && !intro.hidden ? $("#siteTop").offsetTop : 0);
+  window.scrollTo({top:y,behavior:"instant"});
+  observe();
+}
+document.addEventListener("click",e=>{
+  const a = e.target.closest('a[href^="#"]');
+  if(!a) return;
+  const id = a.getAttribute("href").slice(1);
+  if(!isPage(id)) return;
+  e.preventDefault();
+  try{ history.pushState(null,"","#"+id); }catch(_){}
+  show(id);
+});
+addEventListener("popstate",()=>show(location.hash.slice(1)||"home"));
+
+/* ---------- menu ---------- */
+const drawer = $("#drawer"), menuBtn = $("#menuBtn");
+function openMenu(){ drawer.classList.add("open"); drawer.setAttribute("aria-hidden","false"); menuBtn.setAttribute("aria-expanded","true"); document.body.style.overflow="hidden"; }
+function closeMenu(){ drawer.classList.remove("open"); drawer.setAttribute("aria-hidden","true"); menuBtn.setAttribute("aria-expanded","false"); document.body.style.overflow=""; }
+menuBtn.onclick = openMenu; $("#closeBtn").onclick = closeMenu;
+addEventListener("keydown",e=>{ if(e.key==="Escape") closeMenu(); });
+
+/* ---------- reveal + count up ---------- */
+const io = "IntersectionObserver" in window ? new IntersectionObserver(es=>es.forEach(en=>{
+  if(!en.isIntersecting) return;
+  en.target.classList.add("in"); io.unobserve(en.target);
+  en.target.querySelectorAll("[data-count]").forEach(countUp);
+}),{threshold:.12, rootMargin:"0px 0px -40px 0px"}) : null;
+function observe(){
+  document.querySelectorAll(".reveal:not(.in)").forEach(el=>{
+    if(el.closest("[hidden]")) return;
+    io ? io.observe(el) : el.classList.add("in");
+  });
+}
+function countUp(el){
+  const end=+el.dataset.count, suf=el.dataset.suffix||"", t0=performance.now(), dur=1400;
+  const step=t=>{ const p=Math.min(1,(t-t0)/dur), k=1-Math.pow(1-p,3); el.textContent=Math.round(end*k)+(p===1?suf:""); if(p<1) requestAnimationFrame(step); };
+  requestAnimationFrame(step);
+}
+
+/* ---------- mock forms + links still to fill ---------- */
+const toast = $("#toast"); let tt;
+function say(msg){ toast.querySelector("span").textContent=msg; toast.classList.add("show"); clearTimeout(tt); tt=setTimeout(()=>toast.classList.remove("show"),2800); }
+document.querySelectorAll("form").forEach(f=>f.addEventListener("submit",e=>{ e.preventDefault(); say(f.dataset.msg); f.reset(); }));
+document.addEventListener("click",e=>{
+  const a = e.target.closest('a[href="#"]');
+  if(a){ e.preventDefault(); say(a.dataset.todo ? `Mockup: add our real ${a.dataset.todo} link here` : "Mockup: add the real link here"); }
+});
+$("#yr").textContent = new Date().getFullYear();
+
+/* =========================================================
+   GIANT AC INTRO
+   Scroll turns it on, the flap opens, the breeze blows,
+   and the breeze carries you into the site.
+   Move your mouse through the air. Click the AC for a blast.
+   ========================================================= */
+(function(){
+  if(!introOn()) return;
+  const stage=$("#stage"), cvs=$("#breeze"), ctx=cvs.getContext("2d");
+  const ac=$("#ac"), acWrap=$("#acWrap"), flap=$("#flap"), acTemp=$("#acTemp"), outT=$("#outT"), hint=$("#hint"), whoosh=$("#whoosh"), thermoIcon=$("#thermoIcon use");
+  const caps=[...document.querySelectorAll(".cap")];
+  const lerp=(a,b,t)=>a+(b-a)*t, clamp=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)), map=(v,a,b)=>clamp((v-a)/(b-a));
+  const mix=(c1,c2,t)=>`rgb(${c1.map((c,i)=>Math.round(lerp(c,c2[i],t))).join(",")})`;
+  const WARM=[30,15,6], COOL=[5,14,24], DEEP=[5,11,18];
+  const heat=$("#heat"), chill=$("#chill"), thermo=$("#thermo");
+  let W,H,dpr, p=0, parts=[], mouse={x:-999,y:-999,vx:0,vy:0}, burst=0;
+
+  function size(){ dpr=Math.min(2,devicePixelRatio||1); W=stage.clientWidth; H=stage.clientHeight; cvs.width=W*dpr; cvs.height=H*dpr; ctx.setTransform(dpr,0,0,dpr,0,0); }
+  size(); addEventListener("resize",size);
+
+  function progress(){
+    const r=intro.getBoundingClientRect();
+    return clamp(-r.top/(intro.offsetHeight-innerHeight));
+  }
+  stage.addEventListener("mousemove",e=>{ const nx=e.clientX, ny=e.clientY; mouse.vx=nx-mouse.x; mouse.vy=ny-mouse.y; mouse.x=nx; mouse.y=ny; });
+  stage.addEventListener("mouseleave",()=>{ mouse.x=mouse.y=-999; });
+  ac.addEventListener("click",()=>{ burst=1; ac.animate([{transform:"scale(1)"},{transform:"scale(1.015)"},{transform:"scale(1)"}],{duration:300}); });
+  $("#skipIntro").onclick=()=>window.scrollTo({top:$("#siteTop").offsetTop,behavior:"smooth"});
+
+  function spawn(rate, power){
+    const v=flap.getBoundingClientRect();
+    const n = rate + (burst>0? 14:0);
+    for(let i=0;i<n;i++){
+      if(parts.length>520) break;
+      const x=v.left+Math.random()*v.width;
+      parts.push({x, y:v.bottom-2, vx:(x-(v.left+v.width/2))/v.width*3.2+(Math.random()-.5)*.8, vy:(1.8+Math.random()*2.4)*power, life:0, max:110+Math.random()*110, w:1.2+Math.random()*2.2, ph:Math.random()*6.28});
+    }
+  }
+
+  function frame(){
+    requestAnimationFrame(frame);
+    if(intro.hidden) return;
+    const r=intro.getBoundingClientRect();
+    if(r.bottom<0 || r.top>innerHeight) return;
+    p=progress();
+    const on = p>.1;
+    ac.classList.toggle("on",on);
+
+    /* flap opens, temperature drops, room cools */
+    const open=map(p,.1,.28);
+    flap.style.transform=`rotateX(${-open*62}deg)`;
+    acTemp.innerHTML = on ? Math.round(lerp(24,18,map(p,.18,.55)))+"<sup>°C</sup>" : "--";
+    outT.textContent = Math.round(lerp(46,22,map(p,.15,.6)));
+    thermoIcon.setAttribute("href", p>.4 ? "#i-snow" : "#i-sun");
+    const cool=map(p,.12,.55), deep=map(p,.66,.9);
+    stage.style.background = deep>0 ? mix(COOL,DEEP,deep) : mix(WARM,COOL,cool);
+    heat.style.opacity = 1-cool;
+    chill.style.opacity = cool*(1-deep*.6);
+    thermo.classList.toggle("cold", p>.4);
+    hint.style.opacity = 1-map(p,0,.06);
+
+    /* the AC flies up and grows as the breeze takes over */
+    const fly=map(p,.62,.95);
+    acWrap.style.transform=`translateX(-50%) translateY(${-fly*45}vh) scale(${1+fly*.35})`;
+    acWrap.style.opacity = 1-map(p,.82,.97);
+    whoosh.style.opacity = map(p,.9,1);
+
+    caps.forEach(c=>c.classList.toggle("show", p>=+c.dataset.a && p<+c.dataset.b));
+
+    /* breeze */
+    const power = 1+fly*3;
+    if(on) spawn(Math.round(lerp(2,9,map(p,.12,.5))+fly*12), power);
+    burst=Math.max(0,burst-.04);
+
+    ctx.clearRect(0,0,W,H);
+    ctx.lineCap="round";
+    ctx.globalCompositeOperation="lighter";
+    const col = deep>.5 ? "180,230,255" : "42,172,227";
+    for(let i=parts.length-1;i>=0;i--){
+      const q=parts[i];
+      q.life++;
+      q.ph+=.05;
+      q.vx+=Math.sin(q.ph)*.05;
+      const dx=q.x-mouse.x, dy=q.y-mouse.y, d2=dx*dx+dy*dy;
+      if(d2<16000){ const f=(1-d2/16000)*1.4; const d=Math.sqrt(d2)||1; q.vx+=dx/d*f+mouse.vx*.02; q.vy+=dy/d*f*.6+mouse.vy*.02; }
+      q.vx*=.985; q.vy=q.vy*.995+.02;
+      q.x+=q.vx; q.y+=q.vy;
+      const a=Math.sin(Math.PI*clamp(q.life/q.max))*(.3+.5*(1-deep*.3));
+      if(q.life>q.max || q.y>H+40){ parts.splice(i,1); continue; }
+      const len=6+Math.hypot(q.vx,q.vy)*(5+fly*8);
+      const n=Math.hypot(q.vx,q.vy)||1;
+      ctx.strokeStyle=`rgba(${col},${a})`;
+      ctx.lineWidth=q.w*(1+fly*2);
+      ctx.beginPath(); ctx.moveTo(q.x,q.y); ctx.lineTo(q.x-q.vx/n*len, q.y-q.vy/n*len); ctx.stroke();
+    }
+    mouse.vx*=.8; mouse.vy*=.8;
+  }
+  requestAnimationFrame(frame);
+})();
+
+show(location.hash.slice(1)||"home", true);
+</script>
+</body>
+</html>
