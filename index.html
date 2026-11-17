@@ -237,10 +237,11 @@ section{padding:72px 0;position:relative}
 .values span{border:1px solid var(--line2);color:var(--white);font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;text-transform:uppercase;letter-spacing:.04em;font-size:clamp(22px,3vw,32px);padding:12px 26px;clip-path:var(--cut);background:var(--panel);transition:.2s}
 .values span:hover{color:var(--acc);background:var(--panel2);text-shadow:var(--glow)}
 .std{display:grid;border-top:1px solid var(--line)}
-.std div{display:grid;grid-template-columns:120px 1fr;gap:16px;padding:22px 0;border-bottom:1px solid var(--line);align-items:baseline}
-.std b{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;color:var(--acc);font-size:40px;line-height:1;text-shadow:var(--glow)}
-.std p{margin:0}
-.std p strong{color:var(--white)}
+.std div{display:grid;grid-template-columns:1fr;gap:6px;padding:22px 0;border-bottom:1px solid var(--line)}
+.std b{font-family:var(--head);font-stretch:62%;font-variation-settings:"wdth" 62;font-weight:800;color:var(--acc);font-size:34px;line-height:1}
+.std p{margin:0;max-width:52ch;line-height:1.55}
+.std p strong{color:var(--white);display:block;margin-bottom:2px}
+@media(min-width:600px){.std div{grid-template-columns:200px 1fr;gap:32px;padding:28px 0;align-items:center}.std b{font-size:44px}}
 
 /* Programs */
 .prog{display:grid;border-top:1px solid var(--line)}
@@ -597,7 +598,7 @@ footer .icon{border:1px solid var(--line2)}
         <div><b>90.1</b><p><strong>Energy.</strong> How efficient a building has to be.</p></div>
         <div><b>62.1</b><p><strong>Ventilation.</strong> How much fresh air people need inside.</p></div>
         <div><b>55</b><p><strong>Thermal comfort.</strong> Why the room feels just right, or doesn't.</p></div>
-        <div><b>Handbook</b><p><strong>The bible.</strong> Four volumes every HVAC engineer reaches for.</p></div>
+        <div><b>Handbook</b><p><strong>The go-to reference.</strong> Four volumes every HVAC engineer reaches for.</p></div>
       </div>
     </div>
   </section>
@@ -621,7 +622,7 @@ footer .icon{border:1px solid var(--line2)}
 
   <section>
     <div class="wrap split">
-      <div class="photo reveal" data-img="about2" data-label="Photo · RIT Dubai campus"></div>
+      <div class="photo reveal" data-img="about2" data-label="Photo · branch inauguration"></div>
       <div class="reveal">
         <h2>Our branch</h2>
         <p class="lead">We live in RIT Dubai's Department of Mechanical and Industrial Engineering. We're the link between campus and ASHRAE Falcon Chapter UAE, so you get talks, site visits and real industry people.</p>
@@ -639,6 +640,14 @@ footer .icon{border:1px solid var(--line2)}
         <div class="tile reveal"><span class="num">03</span><h3>Scholarships</h3><p>ASHRAE funds students every year.</p></div>
         <div class="tile reveal"><span class="num">04</span><h3>Competitions</h3><p>Enter the ASHRAE Student Design Competition.</p></div>
       </div>
+    </div>
+  </section>
+
+  <section class="mission">
+    <div class="wrap">
+      <h2 class="reveal">Want in?</h2>
+      <p class="reveal">Membership is open to every RIT Dubai student. No HVAC background needed.</p>
+      <div class="btns reveal"><a class="hex green" href="#join">Become a member</a><a class="hex" href="#events">See upcoming events</a></div>
     </div>
   </section>
 </div>
@@ -946,12 +955,18 @@ const photo = (src, label, extra="") => `<div class="photo ${extra}" data-src="$
 
 function hydratePhotos(root=document){
   root.querySelectorAll(".photo:not([data-ready])").forEach(el=>{
+    /* Photos on pages that aren't open yet wait until show() opens them, so the first load stays light. */
+    if(el.closest("[hidden]")) return;
     el.dataset.ready = 1;
     const key = el.dataset.img, src = key ? PHOTOS[key] : el.dataset.src;
     if(!el.querySelector(".tag-slot")) el.insertAdjacentHTML("beforeend",`<span class="tag-slot">${camera}${el.dataset.label||"Photo"}</span>`);
     if(!src) return;
     const im = new Image();
-    im.onload = () => { el.style.backgroundImage = `url("${src}")`; el.classList.add("loaded"); };
+    im.decoding = "async";
+    im.onload = () => {
+      el.style.backgroundImage = `url("${src}")`; el.classList.add("loaded");
+      el.setAttribute("role","img"); el.setAttribute("aria-label",(el.dataset.label||"Photo").replace(/^Photo · /,""));
+    };
     im.src = src;
   });
 }
@@ -1043,6 +1058,7 @@ function show(id, first){
   closeMenu();
   const y = (id==="home" && first) ? 0 : (introOn() && !intro.hidden ? $("#siteTop").offsetTop : 0);
   window.scrollTo({top:y,behavior:"instant"});
+  hydratePhotos(pg);
   observe();
 }
 document.addEventListener("click",e=>{
